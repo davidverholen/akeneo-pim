@@ -25,6 +25,7 @@ use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\Family\Family
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\Family\FamilyVariantApiAdapterInterface;
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\Product\ProductApiAdapter;
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\Product\ProductModelApiAdapter;
+use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\Product\ReferenceEntityApiAdapter;
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Wrapper\AkeneoResourceCursorInterface;
 
 /**
@@ -163,6 +164,7 @@ class AkeneoPimServiceTest extends Unit
                 'createFamilyVariantApiAdapter',
                 'createAttributeOptionApiAdapter',
                 'createProductModelApiAdapter',
+                'createReferenceEntitiesApiAdapter',
             ])
             ->disableOriginalConstructor()
             ->getMock();
@@ -174,6 +176,7 @@ class AkeneoPimServiceTest extends Unit
         $factory->method('createFamilyVariantApiAdapter')->willReturn($this->createFamilyVariantApiAdapterMock());
         $factory->method('createAttributeOptionApiAdapter')->willReturn($this->createAttributeOptionApiAdapterMock());
         $factory->method('createProductModelApiAdapter')->willReturn($this->createProductModelApiAdapterMock());
+        $factory->method('createReferenceEntitiesApiAdapter')->willReturn($this->createReferenceEntitiesApiAdapterMock());
 
         return $factory;
     }
@@ -293,5 +296,20 @@ class AkeneoPimServiceTest extends Unit
             ->getMock();
 
         return $mock;
+    }
+
+    /**
+     * @return \SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\ApiAdapterInterface
+     */
+    protected function createReferenceEntitiesApiAdapterMock(): ApiAdapterInterface
+    {
+        $adapter = $this->getMockBuilder(ReferenceEntityApiAdapter::class)
+            ->disableOriginalConstructor()
+            ->setMethods(['all'])
+            ->getMock();
+
+        $adapter->method('all')->willReturn($this->createAkeneoResourceMock());
+
+        return $adapter;
     }
 }
