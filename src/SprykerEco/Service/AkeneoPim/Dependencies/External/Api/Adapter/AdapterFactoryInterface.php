@@ -81,4 +81,9 @@ interface AdapterFactoryInterface
      * @return \SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\ApiAdapterInterface
      */
     public function createProductModelApiAdapter(): ApiAdapterInterface;
+
+    /**
+     * @return \SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\ApiAdapterInterface
+     */
+    public function createReferenceEntityApiAdapter(): ApiAdapterInterface;
 }

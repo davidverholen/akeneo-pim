@@ -5,9 +5,9 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\Product;
+namespace SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\ReferenceEntity;
 
-use Akeneo\Pim\ApiClient\AkeneoPimClientInterface;
+use Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientInterface;
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\ApiAdapterInterface;
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Wrapper\AkeneoResourceCursorInterface;
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Wrapper\AkeneoResourcePageInterface;
@@ -16,7 +16,7 @@ use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Wrapper\WrapperFactor
 class ReferenceEntityApiAdapter implements ApiAdapterInterface
 {
     /**
-     * @var \Akeneo\Pim\ApiClient\AkeneoPimClientInterface
+     * @var \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientInterface
      */
     protected $akeneoPimClient;
 
@@ -26,10 +26,10 @@ class ReferenceEntityApiAdapter implements ApiAdapterInterface
     private $wrapperFactory;
 
     /**
-     * @param \Akeneo\Pim\ApiClient\AkeneoPimClientInterface $akeneoPimClient
+     * @param \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientInterface $akeneoPimClient
      * @param \SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Wrapper\WrapperFactoryInterface $wrapperFactory
      */
-    public function __construct(AkeneoPimClientInterface $akeneoPimClient, WrapperFactoryInterface $wrapperFactory)
+    public function __construct(AkeneoPimEnterpriseClientInterface $akeneoPimClient, WrapperFactoryInterface $wrapperFactory)
     {
         $this->akeneoPimClient = $akeneoPimClient;
         $this->wrapperFactory = $wrapperFactory;
@@ -45,7 +45,7 @@ class ReferenceEntityApiAdapter implements ApiAdapterInterface
     public function get($code): array
     {
         return $this->akeneoPimClient
-            ->getProductApi()
+            ->getReferenceEntityApi()
             ->get($code);
     }
 
@@ -63,7 +63,7 @@ class ReferenceEntityApiAdapter implements ApiAdapterInterface
     public function listPerPage($limit = 10, $withCount = false, array $queryParameters = []): AkeneoResourcePageInterface
     {
         $page = $this->akeneoPimClient
-            ->getProductApi()
+            ->getReferenceEntityApi()
             ->listPerPage($limit, $withCount, $queryParameters);
 
         return $this->wrapperFactory
@@ -82,7 +82,7 @@ class ReferenceEntityApiAdapter implements ApiAdapterInterface
     public function all($pageSize = 10, array $queryParameters = []): AkeneoResourceCursorInterface
     {
         $resourceCursor = $this->akeneoPimClient
-            ->getProductApi()
+            ->getReferenceEntityApi()
             ->all($pageSize, $queryParameters);
 
         return $this->wrapperFactory

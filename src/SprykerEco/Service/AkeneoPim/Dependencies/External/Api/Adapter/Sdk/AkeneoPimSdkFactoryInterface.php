@@ -7,7 +7,7 @@
 
 namespace SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\Sdk;
 
-use Akeneo\Pim\ApiClient\AkeneoPimClientInterface;
+use Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientInterface;
 use SprykerEco\Service\AkeneoPim\AkeneoPimConfig;
 
 interface AkeneoPimSdkFactoryInterface
@@ -15,7 +15,7 @@ interface AkeneoPimSdkFactoryInterface
     /**
      * @param \SprykerEco\Service\AkeneoPim\AkeneoPimConfig $config
      *
-     * @return \Akeneo\Pim\ApiClient\AkeneoPimClientInterface
+     * @return \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientInterface
      */
-    public function createAkeneoPimClient(AkeneoPimConfig $config): AkeneoPimClientInterface;
+    public function createAkeneoPimClient(AkeneoPimConfig $config): AkeneoPimEnterpriseClientInterface;
 }

@@ -7,7 +7,7 @@
 
 namespace SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\Category;
 
-use Akeneo\Pim\ApiClient\AkeneoPimClientInterface;
+use Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientInterface;
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\ApiAdapterInterface;
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Wrapper\AkeneoResourceCursorInterface;
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Wrapper\AkeneoResourcePageInterface;
@@ -16,7 +16,7 @@ use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Wrapper\WrapperFactor
 class LocaleApiAdapter implements ApiAdapterInterface
 {
     /**
-     * @var \Akeneo\Pim\ApiClient\AkeneoPimClientInterface
+     * @var \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientInterface
      */
     protected $akeneoPimClient;
 
@@ -26,10 +26,10 @@ class LocaleApiAdapter implements ApiAdapterInterface
     private $wrapperFactory;
 
     /**
-     * @param \Akeneo\Pim\ApiClient\AkeneoPimClientInterface $akeneoPimClient
+     * @param \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientInterface $akeneoPimClient
      * @param \SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Wrapper\WrapperFactoryInterface $wrapperFactory
      */
-    public function __construct(AkeneoPimClientInterface $akeneoPimClient, WrapperFactoryInterface $wrapperFactory)
+    public function __construct(AkeneoPimEnterpriseClientInterface $akeneoPimClient, WrapperFactoryInterface $wrapperFactory)
     {
         $this->akeneoPimClient = $akeneoPimClient;
         $this->wrapperFactory = $wrapperFactory;

@@ -498,6 +498,23 @@ class AkeneoPimService extends AbstractService implements AkeneoPimServiceInterf
      *
      * @api
      *
+     * @param string $code Code of the reference entity
+     *
+     * @return array
+     */
+    public function getReferenceEntity($code): array
+    {
+        return $this->getFactory()
+            ->createAkeneoPimAdapterFactory()
+            ->createReferenceEntityApiAdapter()
+            ->get($code);
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @api
+     *
      * @param int $limit The maximum number of attributes to return.
      * @param bool $withCount Set to true to return the total count of attributes.
      * @param array $queryParameters Additional query parameters to pass in the request.

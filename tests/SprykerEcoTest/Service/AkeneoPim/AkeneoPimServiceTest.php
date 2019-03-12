@@ -25,7 +25,7 @@ use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\Family\Family
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\Family\FamilyVariantApiAdapterInterface;
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\Product\ProductApiAdapter;
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\Product\ProductModelApiAdapter;
-use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\Product\ReferenceEntityApiAdapter;
+use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\ReferenceEntity\ReferenceEntityApiAdapter;
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Wrapper\AkeneoResourceCursorInterface;
 
 /**
@@ -100,6 +100,16 @@ class AkeneoPimServiceTest extends Unit
      * @return void
      */
     public function testGetAllProductModels(): void
+    {
+        $service = $this->prepareService();
+
+        $this->assertTrue($service->getAllProductModels() instanceof AkeneoResourceCursorInterface);
+    }
+
+    /**
+     * @return void
+     */
+    public function testGetAllReferenceEntities(): void
     {
         $service = $this->prepareService();
 
