@@ -22,5 +22,82 @@
         <property name="result" type="string"/>
     </transfer>
 
+    <transfer name="AkeneoProductConcreteReadConfig">
+        <property name="fromDate" type="string"/>
+    </transfer>
+
+    <transfer name="AkeneoProductConcreteValidateConfig">
+        <property name="validate" type="string"/>
+    </transfer>
+
+    <transfer name="AkeneoProductConcreteTranslateConfig">
+        <property name="translate" type="string"/>
+    </transfer>
+
+    <transfer name="AkeneoProductConcreteMapConfig">
+        <property name="map" type="string"/>
+    </transfer>
+
+    <transfer name="AkeneoProductConcreteSyncConfig">
+        <property name="readConfig" type="AkeneoProductConcreteReadConfig" />
+        <property name="validateConfig" type="AkeneoProductConcreteValidateConfig" />
+        <property name="translateConfig" type="AkeneoProductConcreteTranslateConfig" />
+        <property name="mapConfig" type="AkeneoProductConcreteMapConfig" />
+        <property name="writeConfig" type="AkeneoProductConcreteWriteConfig" />
+    </transfer>
+
+    <transfer name="AkeneoSyncResult">
+        <property name="success" type="array" />
+        <property name="failure" type="array" />
+    </transfer>
+
+    <transfer name="AkeneoSyncValidateResult">
+        <property name="isSuccess" type="bool" />
+        <property name="isTerminate" type="bool" />
+        <property name="errors" type="array" />
+    </transfer>
+
+    <transfer name="AkeneoSyncWriteResult">
+        <property name="isSuccess" type="bool" />
+    </transfer>
+
+    <transfer name="AkeneoProductConcreteWriteConfig">
+        <property name="type" type="string" />
+    </transfer>
+
+
+
+
+
+
+
+    <transfer name="AkeneoCategoryReadConfig">
+        <property name="fromDate" type="string"/>
+    </transfer>
+
+    <transfer name="AkeneoCategoryValidateConfig">
+        <property name="validate" type="string"/>
+    </transfer>
+
+    <transfer name="AkeneoCategoryTranslateConfig">
+        <property name="translate" type="string"/>
+    </transfer>
+
+    <transfer name="AkeneoCategoryMapConfig">
+        <property name="map" type="string"/>
+    </transfer>
+
+    <transfer name="AkeneoCategorySyncConfig">
+        <property name="readConfig" type="AkeneoCategoryReadConfig" />
+        <property name="validateConfig" type="AkeneoCategoryValidateConfig" />
+        <property name="translateConfig" type="AkeneoCategoryTranslateConfig" />
+        <property name="mapConfig" type="AkeneoCategoryMapConfig" />
+        <property name="writeConfig" type="AkeneoCategoryWriteConfig" />
+    </transfer>
+
+    <transfer name="AkeneoCategoryWriteConfig">
+        <property name="type" type="string" />
+    </transfer>
+
 </transfers>
 
