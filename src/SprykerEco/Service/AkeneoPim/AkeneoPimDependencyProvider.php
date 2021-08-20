@@ -22,11 +22,11 @@ class AkeneoPimDependencyProvider extends AbstractBundleDependencyProvider
     }
 
     /**
-     * @param \Spryker\Zed\Kernel\Container $container
+     * @param \Spryker\Service\Kernel\Container $container
      *
-     * @return \Spryker\Zed\Kernel\Container
+     * @return \Spryker\Service\Kernel\Container
      */
-    protected function addSession(\Spryker\Zed\Kernel\Container $container)
+    protected function addSession(Container $container)
     {
         $container->set(static::CLIENT_SESSION, function (Container $container) {
             return $container->getLocator()->session()->client();

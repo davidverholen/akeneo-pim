@@ -1,6 +1,6 @@
 <?php
 
-namespace AkeneoPim\Dependencies\External\Api\Adapter\Sdk;
+namespace SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\Sdk;
 
 use Akeneo\Pim\ApiClient\AkeneoPimClientInterface;
 use SprykerEco\Service\AkeneoPim\AkeneoPimConfig;
@@ -18,7 +18,7 @@ class AkeneoPimSdkDirector implements AkeneoPimSdkDirectorInterface
     /**
      * @var \Symfony\Component\HttpFoundation\Session\SessionInterface
      */
-    private SessionInterface $session;
+    private $session;
 
     public function __construct(
         AkeneoPimSdkFactoryInterface $akeneoPimSdkFactory,

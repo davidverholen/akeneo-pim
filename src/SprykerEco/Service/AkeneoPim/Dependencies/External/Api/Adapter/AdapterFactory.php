@@ -7,7 +7,6 @@
 
 namespace SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter;
 
-use AkeneoPim\Dependencies\External\Api\Adapter\Sdk\AkeneoPimSdkDirector;
 use SprykerEco\Service\AkeneoPim\AkeneoPimConfig;
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\Attributes\AttributeApiAdapter;
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\Attributes\AttributeGroupApiAdapter;
@@ -25,6 +24,7 @@ use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\Product\Assoc
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\Product\ProductApiAdapter;
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\Product\ProductMediaFileApiAdapter;
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\Product\ProductModelApiAdapter;
+use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\Sdk\AkeneoPimSdkDirector;
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\Sdk\AkeneoPimSdkDirectorInterface;
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\Sdk\AkeneoPimSdkFactory;
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\Sdk\AkeneoPimSdkFactoryInterface;
@@ -46,7 +46,7 @@ class AdapterFactory implements AdapterFactoryInterface
     /**
      * @var \Symfony\Component\HttpFoundation\Session\SessionInterface
      */
-    private SessionInterface $session;
+    private $session;
 
     /**
      * @param \SprykerEco\Service\AkeneoPim\AkeneoPimConfig $config
