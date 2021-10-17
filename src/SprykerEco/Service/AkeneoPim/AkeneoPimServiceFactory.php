@@ -8,12 +8,10 @@
 namespace SprykerEco\Service\AkeneoPim;
 
 use Spryker\Service\Kernel\AbstractServiceFactory;
-use Spryker\Zed\User\UserDependencyProvider;
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\AdapterFactory;
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\AdapterFactoryInterface;
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Wrapper\WrapperFactory;
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Wrapper\WrapperFactoryInterface;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 /**
  * @method \SprykerEco\Service\AkeneoPim\AkeneoPimConfig getConfig()
@@ -25,11 +23,7 @@ class AkeneoPimServiceFactory extends AbstractServiceFactory
      */
     public function createAkeneoPimAdapterFactory(): AdapterFactoryInterface
     {
-        return new AdapterFactory(
-            $this->getConfig(),
-            $this->createWrapperFactory(),
-            $this->getSessionClient()
-        );
+        return new AdapterFactory($this->getConfig(), $this->createWrapperFactory());
     }
 
     /**
@@ -38,13 +32,5 @@ class AkeneoPimServiceFactory extends AbstractServiceFactory
     public function createWrapperFactory(): WrapperFactoryInterface
     {
         return new WrapperFactory();
-    }
-
-    /**
-     * @return \Symfony\Component\HttpFoundation\Session\SessionInterface
-     */
-    public function getSessionClient(): SessionInterface
-    {
-        return $this->getProvidedDependency(AkeneoPimDependencyProvider::CLIENT_SESSION);
     }
 }

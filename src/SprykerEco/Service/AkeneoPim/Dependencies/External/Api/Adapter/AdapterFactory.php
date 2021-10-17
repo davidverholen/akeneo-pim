@@ -29,7 +29,6 @@ use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\Sdk\AkeneoPim
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\Sdk\AkeneoPimSdkFactory;
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Adapter\Sdk\AkeneoPimSdkFactoryInterface;
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Wrapper\WrapperFactoryInterface;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class AdapterFactory implements AdapterFactoryInterface
 {
@@ -44,19 +43,13 @@ class AdapterFactory implements AdapterFactoryInterface
     protected $wrapperFactory;
 
     /**
-     * @var \Symfony\Component\HttpFoundation\Session\SessionInterface
-     */
-    private $session;
-
-    /**
      * @param \SprykerEco\Service\AkeneoPim\AkeneoPimConfig $config
      * @param \SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Wrapper\WrapperFactoryInterface $wrapperFactory
      */
-    public function __construct(AkeneoPimConfig $config, WrapperFactoryInterface $wrapperFactory, SessionInterface $session)
+    public function __construct(AkeneoPimConfig $config, WrapperFactoryInterface $wrapperFactory)
     {
         $this->config = $config;
         $this->wrapperFactory = $wrapperFactory;
-        $this->session = $session;
     }
 
     /**
@@ -227,8 +220,7 @@ class AdapterFactory implements AdapterFactoryInterface
     public function createAkeneoPimSdkDirector(): AkeneoPimSdkDirectorInterface
     {
         return new AkeneoPimSdkDirector(
-            $this->createAkeneoPimSdkFactory(),
-            $this->session
+            $this->createAkeneoPimSdkFactory()
         );
     }
 }
