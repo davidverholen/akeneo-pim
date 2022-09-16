@@ -7,6 +7,7 @@
 
 namespace SprykerEco\Service\AkeneoPim;
 
+use Akeneo\Pim\ApiClient\AkeneoPimClientInterface;
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Wrapper\AkeneoResourceCursorInterface;
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Wrapper\AkeneoResourcePageInterface;
 
@@ -537,4 +538,14 @@ interface AkeneoPimServiceInterface
      * @return \SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Wrapper\AkeneoResourcePageInterface
      */
     public function getProductModelsListPerPage($limit = 10, $withCount = false, array $queryParameters = []): AkeneoResourcePageInterface;
+
+    /**
+     * Specification:
+     *  - Returns Akeneo Pim Client
+     *
+     * @api
+     *
+     * @return \Akeneo\Pim\ApiClient\AkeneoPimClientInterface
+     */
+    public function getAkeneoPimClient(): AkeneoPimClientInterface;
 }

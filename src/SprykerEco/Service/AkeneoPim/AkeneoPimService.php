@@ -7,6 +7,7 @@
 
 namespace SprykerEco\Service\AkeneoPim;
 
+use Akeneo\Pim\ApiClient\AkeneoPimClientInterface;
 use Spryker\Service\Kernel\AbstractService;
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Wrapper\AkeneoResourceCursorInterface;
 use SprykerEco\Service\AkeneoPim\Dependencies\External\Api\Wrapper\AkeneoResourcePageInterface;
@@ -740,5 +741,18 @@ class AkeneoPimService extends AbstractService implements AkeneoPimServiceInterf
             ->createAkeneoPimAdapterFactory()
             ->createProductModelApiAdapter()
             ->listPerPage($limit, $withCount, $queryParameters);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @api
+     *
+     * @return \Akeneo\Pim\ApiClient\AkeneoPimClientInterface
+     */
+    public function getAkeneoPimClient(): AkeneoPimClientInterface
+    {
+        return $this->getFactory()
+            ->createAkeneoPimClient();
     }
 }
